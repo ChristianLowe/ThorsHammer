@@ -1,14 +1,9 @@
 package com.grognak
 
 import com.fasterxml.jackson.annotation.JsonProperty
-import com.fasterxml.jackson.core.JsonGenerator
-import com.fasterxml.jackson.databind.JsonSerializer
-import com.fasterxml.jackson.databind.SerializerProvider
-import com.fasterxml.jackson.databind.annotation.JsonSerialize
 import com.grognak.databank.Item
 import com.grognak.databank.SkillType
 import java.io.Serializable
-import java.io.StringWriter
 import kotlin.collections.ArrayList
 import kotlin.collections.HashMap
 
@@ -50,6 +45,22 @@ class Inventory : ArrayList<Item>() {
     fun isFull(): Boolean = this.size >= maxInventorySize
 }
 
+class Equipment : HashMap<Equipment.Slot, Item>() {
+    enum class Slot {
+        Head,
+        Cape,
+        Neck,
+        Body,
+        Hands,
+        Ring,
+        Legs,
+        Feet,
+        Quiver,
+        Weapon,
+        Shield,
+    }
+}
+
 class Bank : HashMap<Item, Long>() {
     override fun get(key: Item): Long {
         return super.get(key) ?: 0
@@ -73,6 +84,9 @@ class UserData(@JsonProperty("name") val name: String) : Serializable {
 
     @JsonProperty("inventory")
     val inventory: Inventory = Inventory()
+
+    @JsonProperty("Equipment")
+    val equipment: Equipment = Equipment()
 
     @JsonProperty("bank")
     val bank: Bank = Bank()
