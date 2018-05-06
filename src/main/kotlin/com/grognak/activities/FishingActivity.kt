@@ -52,7 +52,8 @@ class FishingActivity(user: User) : Activity(user) {
             addXP(user, SkillType.Fishing, fishXp[catch]!!)
         }
 
-        if (userData.inventory.isFull()) {
+        // We get the userdata directly here, as it may have been altered above.
+        if (UserDataManager.getUserData(user).inventory.isFull()) {
             messageUser(user, "your inventory is full!")
             return null
         } else {
