@@ -2,6 +2,7 @@ package com.grognak
 
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.grognak.databank.Item
+import com.grognak.databank.Location
 import com.grognak.databank.SkillType
 import java.io.Serializable
 import kotlin.collections.ArrayList
@@ -78,6 +79,9 @@ class Bank : HashMap<Item, Long>() {
 class UserData(@JsonProperty("name") val name: String) : Serializable {
     @JsonProperty("channel")
     var channel: Long? = null
+
+    @JsonProperty("location")
+    var location: Location = Location.Lake
 
     @JsonProperty("xp")
     val xp: SkillStats = SkillStats()

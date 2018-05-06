@@ -14,5 +14,15 @@ enum class Item {
     Bass,
     Swordfish,
     Monkfish,
-    Sharks
+    Sharks;
+
+    companion object {
+        fun valueOfCaseInsensitive(place: String?): Item? {
+            Item.values().forEach {
+                if (it.name.equals(place, true)) return it
+            }
+
+            return null
+        }
+    }
 }

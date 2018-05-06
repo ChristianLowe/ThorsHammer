@@ -1,34 +1,28 @@
 package com.grognak
 
-import com.grognak.activities.Activity
+import com.grognak.activities.FishingActivity
+import com.grognak.databank.Location
+import com.grognak.databank.SkillType
 import net.dv8tion.jda.core.entities.User
-import java.util.*
-import kotlin.collections.HashMap
-import kotlin.concurrent.schedule
 
 object SkillingManager {
-    private val activityMap = HashMap<User, TimerTask>()
+    private val skillingLocationMap = mapOf(
+            SkillType.Fishing to arrayOf(Location.Lake)
+    )
 
-    fun addActivity(activity: Activity): Long {
-        val waitTime = activity.waitTime()
+    fun startSkilling(user: User, skill: SkillType): String {
+        val userData = UserDataManager.getUserData(user)
+        if (userData.location !in skillingLocationMap[skill]!!) {
+            return "you can't perform that action here. Your current location is `${userData.location}`. Try moving?"
+        }
 
-        cancelUserActivity(activity.user)
-        scheduleNextActivity(activity, waitTime)
-        return waitTime
-    }
-
-    fun cancelUserActivity(user: User) {
-        activityMap[user]?.cancel()
-    }
-
-    private fun scheduleNextActivity(activity: Activity, waitTime: Long) {
-        activityMap[activity.user] = Timer(true).schedule(waitTime) {
-            val newTime = activity.perform()
-
-            if (newTime != null) {
-                scheduleNextActivity(activity, newTime)
+        val response: String
+        when (skill) {
+            SkillType.Fishing -> {
+                response = "you cast out your net..."
+                ActivityManager.addActivity(FishingActivity(user))
             }
         }
+        return response
     }
 }
-
