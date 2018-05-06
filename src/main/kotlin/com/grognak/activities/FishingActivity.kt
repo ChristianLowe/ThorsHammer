@@ -46,7 +46,7 @@ class FishingActivity(user: User) : Activity(user) {
 
         if (!userData.inventory.isFull()) {
             val catch = productionRoulette(minLevels, userData.xp.level(SkillType.Fishing))
-            messageUser(user, "you catch a ${catch.name}, worth ${fishXp[catch]} xp.")
+            messageUser(user, "you caught ${catch.name}, worth ${fishXp[catch]} xp.")
 
             addItem(user, catch)
             addXP(user, SkillType.Fishing, fishXp[catch]!!)
