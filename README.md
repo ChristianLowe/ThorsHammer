@@ -10,7 +10,7 @@ RuneScape and provides them in an Idle RPG format.
 ## Invite to your server
 If you just want to play, you can invite the main **Thor's Hammer** bot to your 
 server through [this link](https://discordapp.com/oauth2/authorize?client_id=442496247933173760&scope=bot). 
-You will need to make a channel named `#ThorsHammer`. Type `help` in that channel 
+You will need to make a channel named `#bots`. Type `help` in that channel 
 to get started. The rest of this document is for those who wish to develop or 
 set up their own instance.
 

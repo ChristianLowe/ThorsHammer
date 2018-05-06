@@ -11,7 +11,7 @@ class MessageListener : ListenerAdapter() {
 
     override fun onMessageReceived(event: MessageReceivedEvent) {
         with (event) {
-            if (channel.name.toLowerCase() != "thorshammer" || author.isBot) return
+            if (channel.name.toLowerCase() != "bots" || author.isBot) return
             println("${author.fullName()}: ${message.contentDisplay}")
 
             val messageParams = message.contentDisplay.trim().split("\\s+".toRegex())
