@@ -1,6 +1,8 @@
-package com.grognak
+package com.grognak.managers
 
 import com.fasterxml.jackson.databind.ObjectMapper
+import com.grognak.UserData
+import com.grognak.fullName
 import net.dv8tion.jda.core.entities.User
 import redis.clients.jedis.Jedis
 

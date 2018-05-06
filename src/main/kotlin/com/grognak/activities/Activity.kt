@@ -1,6 +1,6 @@
 package com.grognak.activities
 
-import com.grognak.UserDataManager
+import com.grognak.managers.UserDataManager
 import com.grognak.databank.Item
 import com.grognak.databank.SkillType
 import com.grognak.messageUser

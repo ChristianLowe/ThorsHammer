@@ -1,4 +1,4 @@
-package com.grognak
+package com.grognak.managers
 
 import com.grognak.activities.Activity
 import net.dv8tion.jda.core.entities.User

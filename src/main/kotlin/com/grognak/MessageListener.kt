@@ -3,6 +3,10 @@ package com.grognak
 import com.grognak.activities.MovingActivity
 import com.grognak.databank.SkillType
 import com.grognak.databank.Location
+import com.grognak.managers.ActivityManager
+import com.grognak.managers.BankingManager
+import com.grognak.managers.SkillingManager
+import com.grognak.managers.UserDataManager
 import net.dv8tion.jda.core.entities.User
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
 import net.dv8tion.jda.core.hooks.ListenerAdapter
@@ -50,7 +54,8 @@ class MessageListener : ListenerAdapter() {
         val location = Location.valueOfCaseInsensitive(place)
 
         if (location == null) {
-            return "move where? Valid locations are `${Location.values().joinToString()}`"
+            val userData = UserDataManager.getUserData(user)
+            return "move where? You are currently at `${userData.location}`. Valid locations are `${Location.values().joinToString()}`"
         } else {
             val waitTime = ActivityManager.addActivity(MovingActivity(user, location))
             return "you make your way to ${location.name}. (ETA: ${formatMilliseconds(waitTime)})"

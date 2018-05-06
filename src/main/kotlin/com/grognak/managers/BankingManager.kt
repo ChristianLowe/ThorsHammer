@@ -1,5 +1,6 @@
-package com.grognak
+package com.grognak.managers
 
+import com.grognak.UserData
 import com.grognak.databank.Item
 import com.grognak.databank.Location
 import net.dv8tion.jda.core.entities.User

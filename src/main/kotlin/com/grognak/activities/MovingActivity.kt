@@ -1,6 +1,6 @@
 package com.grognak.activities
 
-import com.grognak.UserDataManager
+import com.grognak.managers.UserDataManager
 import com.grognak.databank.Location
 import com.grognak.databank.Location.*
 import com.grognak.messageUser

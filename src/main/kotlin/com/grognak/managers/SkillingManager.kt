@@ -1,4 +1,4 @@
-package com.grognak
+package com.grognak.managers
 
 import com.grognak.activities.FishingActivity
 import com.grognak.databank.Location
