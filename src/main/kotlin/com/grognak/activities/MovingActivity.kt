@@ -23,5 +23,5 @@ class MovingActivity(user: User, private val location: Location) : Activity(user
         return null
     }
 
-    override fun waitTime(): Long = 30 // TODO: implement distances between location nodes
+    override fun waitTime(): Long = 30_000 // TODO: implement distances between location nodes
 }
