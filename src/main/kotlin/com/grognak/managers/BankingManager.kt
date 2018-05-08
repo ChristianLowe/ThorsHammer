@@ -29,7 +29,7 @@ object BankingManager {
         val amountStr = params.getOrNull(0)
         val itemStr = params.getOrNull(1)
 
-        if (amountStr == null || itemStr == null) {
+        if (amountStr == null) {
             return "usage: `bank deposit <amount> <item>"
         }
 
@@ -43,15 +43,20 @@ object BankingManager {
         }
 
         val item = Item.valueOfCaseInsensitive(itemStr)
-        if (item == null) {
+        if (item == null && itemStr != null) {
             return "that's an invalid item."
-        } else if (item !in userData.inventory) {
+        } else if (item != null && item !in userData.inventory) {
             return "you don't have that item in your inventory."
         }
 
         UserDataManager.withUserData(user) {
             while (amount > 0) {
-                val transferItem = it.inventory.find { invItem -> invItem == item }
+                val transferItem: Item?
+                transferItem = if (item == null) {
+                    it.inventory.firstOrNull()
+                } else {
+                    it.inventory.find { invItem -> invItem == item }
+                }
 
                 if (transferItem == null) {
                     break
@@ -64,7 +69,7 @@ object BankingManager {
             }
         }
 
-        return "successfully deposited your $itemStr"
+        return "successfully deposited your ${itemStr ?: "items"}"
     }
 
     private fun withdrawal(user: User, params: List<String>): String {
