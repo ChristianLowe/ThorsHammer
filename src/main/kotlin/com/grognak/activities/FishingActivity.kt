@@ -7,39 +7,39 @@ import com.grognak.messageUser
 import com.grognak.random
 import net.dv8tion.jda.core.entities.User
 
-val minLevels = mapOf(
-        Shrimp      to 1,
-        Sardines    to 5,
-        Herring     to 10,
-        Anchovies   to 15,
-        Trout       to 20,
-        Pike        to 25,
-        Salmon      to 30,
-        Tuna        to 35,
-        Lobsters    to 40,
-        Bass        to 46,
-        Swordfish   to 50,
-        Monkfish    to 62,
-        Sharks      to 76
-)
-
-val fishXp = mapOf(
-        Shrimp      to 10,
-        Sardines    to 20,
-        Herring     to 30,
-        Anchovies   to 40,
-        Trout       to 50,
-        Pike        to 60,
-        Salmon      to 70,
-        Tuna        to 80,
-        Lobsters    to 90,
-        Bass        to 100,
-        Swordfish   to 100,
-        Monkfish    to 120,
-        Sharks      to 110
-)
-
 class FishingActivity(user: User) : Activity(user) {
+
+    private val minLevels = mapOf(
+            Shrimp      to 1,
+            Sardines    to 5,
+            Herring     to 10,
+            Anchovies   to 15,
+            Trout       to 20,
+            Pike        to 25,
+            Salmon      to 30,
+            Tuna        to 35,
+            Lobsters    to 40,
+            Bass        to 46,
+            Swordfish   to 50,
+            Monkfish    to 62,
+            Sharks      to 76
+    )
+
+    private val fishXp = mapOf(
+            Shrimp      to 10,
+            Sardines    to 20,
+            Herring     to 30,
+            Anchovies   to 40,
+            Trout       to 50,
+            Pike        to 60,
+            Salmon      to 70,
+            Tuna        to 80,
+            Lobsters    to 90,
+            Bass        to 100,
+            Swordfish   to 100,
+            Monkfish    to 120,
+            Sharks      to 110
+    )
 
     override fun perform(): Long? {
         val userData = UserDataManager.getUserData(user)
