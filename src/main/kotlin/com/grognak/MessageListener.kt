@@ -26,13 +26,14 @@ class MessageListener : ListenerAdapter() {
             val messageParams = message.contentDisplay.trim().split("\\s+".toRegex())
 
             val response = when (messageParams.get(0).toLowerCase()) {
-                "g", "go"   -> go(author, messageParams.getOrNull(1))
-                "m", "move" -> move(author, messageParams.getOrNull(1))
-                "s", "stop" -> stop(author)
-                "b", "bank" -> bank(author, messageParams)
+                "g", "go"       -> go(author, messageParams.getOrNull(1))
+                "m", "move"     -> move(author, messageParams.getOrNull(1))
+                "s", "stop"     -> stop(author)
+                "b", "bank"     -> bank(author, messageParams)
+                "l", "levels"   -> levels(author)
                 "i", "inv", "inventory" -> inventory(author)
                 "?", "help", "commands" -> help()
-                "ping"      -> ping()
+                "ping"          -> ping()
 
                 else -> null
             }
@@ -74,6 +75,12 @@ class MessageListener : ListenerAdapter() {
 
     private fun bank(user: User, messageParams: List<String>): String {
         return BankingManager.processRequest(user, messageParams.slice(1 until messageParams.size))
+    }
+
+    private fun levels(user: User): String {
+        val userData = UserDataManager.getUserData(user)
+
+        return "your levels are at {${userData.xp.map { (s, _) -> "$s=${userData.xp.level(s)}" }.joinToString()}}"
     }
 
     private fun inventory(user: User): String {
