@@ -5,9 +5,14 @@ enum class Location {
     Lake;
 
     companion object {
-        fun valueOfCaseInsensitive(place: String?): Location? {
-            Location.values().forEach {
-                if (it.name.equals(place, true)) return it
+        fun fromString(place: String?): Location? {
+            val stringToLocation = mapOf(
+                    arrayOf("lumby", "lumbridge") to Lumbridge,
+                    arrayOf("lake") to Lake
+            )
+
+            stringToLocation.forEach {
+                if (place in it.key) return it.value
             }
 
             return null

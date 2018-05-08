@@ -56,7 +56,7 @@ class MessageListener : ListenerAdapter() {
     }
 
     private fun move(user: User, place: String?): String {
-        val location = Location.valueOfCaseInsensitive(place)
+        val location = Location.fromString(place)
 
         if (location == null) {
             val userData = UserDataManager.getUserData(user)
