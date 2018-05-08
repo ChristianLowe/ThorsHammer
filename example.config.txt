@@ -3,3 +3,5 @@
 
 discord_token NDQwNjM5NDg0NjQ0NTU2ODAw.DcqmoA.Pl4EuDXDk3ixGBTfUqUC1ykV0Co
 discord_client_id 441639374644596700
+
+ignore_list examplename1#1234 examplename2#1234

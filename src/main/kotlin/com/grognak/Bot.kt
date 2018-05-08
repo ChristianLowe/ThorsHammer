@@ -12,8 +12,9 @@ const val ERROR_LOGIN = "Could not login with your given token. " +
 
 private lateinit var jda: JDA
 
+val config = Config.fromFileName("config.txt")
+
 fun main(args: Array<String>) {
-    val config = Config.fromFileName("config.txt")
 
     if (config["discord_client_id"] != null) {
         val url = "https://discordapp.com/oauth2/authorize?client_id=${config["discord_client_id"]}&scope=bot"
