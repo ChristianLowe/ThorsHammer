@@ -89,7 +89,7 @@ class MessageListener : ListenerAdapter() {
     }
 
     private fun help(): String {
-        return "valid commands are: `go, move, stop, bank, inventory`. Valid skills are: `${SkillType.values().joinToString()}`. Try saying `go fishing`!"
+        return "valid commands are: `go, move, stop, bank, levels, inventory`. Valid skills are: `${SkillType.values().joinToString()}`. Try saying `go fishing`!"
     }
 
     private fun ping(): String {
