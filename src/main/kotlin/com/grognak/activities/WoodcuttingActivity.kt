@@ -42,12 +42,12 @@ class WoodcuttingActivity(user: User) : Activity(user) {
 
             addItem(user, wood)
             addXP(user, SkillType.Woodcutting, experience[wood]!!)
+            return waitTime()
         } else {
             messageUser(user, "your inventory is full!")
+            return null
         }
-
-        return waitTime()
     }
 
-    override fun waitTime() = (5_000..30_000).random().toLong()
+    override fun waitTime() = (10_000..40_000).random().toLong()
 }
