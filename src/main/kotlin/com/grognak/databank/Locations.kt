@@ -1,6 +1,7 @@
 package com.grognak.databank
 
 enum class Location {
+    Forest,
     Lumbridge,
     Lake;
 
@@ -8,7 +9,8 @@ enum class Location {
         fun fromString(place: String?): Location? {
             val stringToLocation = mapOf(
                     arrayOf("lumby", "lumbridge") to Lumbridge,
-                    arrayOf("lake") to Lake
+                    arrayOf("lake") to Lake,
+                    arrayOf("forest") to Forest
             )
 
             stringToLocation.forEach {

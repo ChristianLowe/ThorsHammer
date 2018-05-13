@@ -49,7 +49,7 @@ class MessageListener : ListenerAdapter() {
     private fun go(user: User, action: String?): String {
         val skill = when (action) {
             "f", "fish", "fishing" -> SkillType.Fishing
-
+            "w", "woodcut", "woodcutting" -> SkillType.Woodcutting
             else -> return "go do what? Possible skills: `${SkillType.values().joinToString()}`"
         }
 
