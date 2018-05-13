@@ -14,7 +14,17 @@ enum class Item {
     Bass,
     Swordfish,
     Monkfish,
-    Sharks;
+    Sharks,
+    // Wood
+    Normal,
+    Oak,
+    Wilow,
+    Teak,
+    Maple,
+    Mahogany,
+    Yew,
+    Magic,
+    Redwood;
 
     companion object {
         fun valueOfCaseInsensitive(place: String?): Item? {
