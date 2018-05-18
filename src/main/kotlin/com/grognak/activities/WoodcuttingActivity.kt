@@ -10,7 +10,7 @@ import net.dv8tion.jda.core.entities.User
 val minWoodLevels = mapOf(
         Normal         to 1,
         Oak            to 15,
-        Wilow          to 30,
+        Willow         to 30,
         Teak           to 35,
         Maple          to 45,
         Mahogany       to 50,
@@ -22,7 +22,7 @@ val minWoodLevels = mapOf(
 val experience = mapOf(
         Normal         to 25,
         Oak            to 38,
-        Wilow          to 68,
+        Willow         to 68,
         Teak           to 85,
         Maple          to 100,
         Mahogany       to 125,

@@ -18,7 +18,7 @@ enum class Item {
     // Wood
     Normal,
     Oak,
-    Wilow,
+    Willow,
     Teak,
     Maple,
     Mahogany,
